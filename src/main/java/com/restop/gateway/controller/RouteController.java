@@ -7,7 +7,6 @@ import com.restop.gateway.req.GetRouteReq;
 import com.restop.gateway.resp.GetRouteResp;
 import com.restop.gateway.service.Greeting;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +22,7 @@ public class RouteController {
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 
-    @PostMapping("/getRoute")
+    @GetMapping("/getRoute")
     public GetRouteResp sendGetRouteReq (@RequestParam GetRouteReq req) {
         GetRouteResp resp = new GetRouteResp();
         return resp;
