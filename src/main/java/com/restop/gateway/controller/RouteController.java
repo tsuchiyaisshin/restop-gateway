@@ -24,6 +24,7 @@ public class RouteController {
 
     @GetMapping("/getRoute")
     public GetRouteResp sendGetRouteReq (@RequestParam GetRouteReq req) {
+        //TODO: googleにリクエスト処理を送る
         GetRouteResp resp = new GetRouteResp();
         return resp;
     }
