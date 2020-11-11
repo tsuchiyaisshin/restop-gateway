@@ -29,9 +29,6 @@ public class RouteManager {
                 .mode(TravelMode.DRIVING)
                 .await();
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        System.out.println(gson.toJson(result));
-
         return result;
     };
 
