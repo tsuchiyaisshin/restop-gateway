@@ -1,5 +1,14 @@
 package com.restop.gateway.controller;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.nio.Buffer;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -7,8 +16,11 @@ import com.restop.gateway.req.GetRouteReq;
 import com.restop.gateway.resp.GetRouteResp;
 import com.restop.gateway.service.Greeting;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.net.ssl.HttpsURLConnection;
 
 @RestController
 public class RouteController {
@@ -23,9 +35,23 @@ public class RouteController {
     }
 
     @GetMapping("/getRoute")
-    public GetRouteResp sendGetRouteReq (@RequestParam GetRouteReq req) {
+    public GetRouteResp sendGetRouteReq (@ModelAttribute GetRouteReq req) {
         //TODO: googleにリクエスト処理を送る
         GetRouteResp resp = new GetRouteResp();
+        resp.setJson(
+                "{" +
+                "    \"person\": {" +
+                "        \"firstName\": \"John\"," +
+                "        \"lastName\": \"Doe\"," +
+                "        \"address\": \"NewYork\"," +
+                "        \"pets\": [" +
+                "            {\"type\": \"Dog\", \"name\": \"Jolly\"}," +
+                "            {\"type\": \"Cat\", \"name\": \"Grizabella\"}," +
+                "            {\"type\": \"Fish\", \"name\": \"Nimo\"}" +
+                "        ]" +
+                "    }" +
+                "}"
+        );
         return resp;
     }
 }
