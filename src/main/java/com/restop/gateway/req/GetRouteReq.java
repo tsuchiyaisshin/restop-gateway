@@ -1,23 +1,16 @@
 package com.restop.gateway.req;
 
+import com.google.maps.model.LatLng;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
 public class GetRouteReq {
 
-    private String origin;
-    private String direction;
+    private LatLng origin;
+    private LatLng direction;
 
-    public String getOrigin() {
-        return origin;
-    }
-
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
 }
