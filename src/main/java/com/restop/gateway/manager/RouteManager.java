@@ -31,7 +31,6 @@ public class RouteManager {
                 .await();
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        System.out.println(gson.toJson(result));
 
         return result;
     };
