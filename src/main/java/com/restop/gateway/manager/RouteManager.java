@@ -34,5 +34,19 @@ public class RouteManager {
         return result;
     };
 
+     public DirectionsResult getRoute (LatLng origin, LatLng destination) throws InterruptedException, ApiException, IOException {
+
+         DirectionsResult result = DirectionsApi.newRequest(context)
+                 .origin(origin)
+                 .destination(destination)
+                 .mode(TravelMode.DRIVING)
+                 .await();
+
+         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+         return result;
+         
+     };
+
 }
 

@@ -21,7 +21,7 @@ public class RouteController {
 
     @GetMapping("/getRoute")
     public DirectionsResult sendGetRouteReq (@ModelAttribute GetRouteReq req) throws InterruptedException, ApiException, IOException {
-        DirectionsResult result = routeManager.testAPI();
+        DirectionsResult result = routeManager.getRoute(req.getOrigin(), req.getDirection());
         return result;
     }
 }

@@ -1,5 +1,6 @@
 package com.restop.gateway.req;
 
+import com.google.maps.model.LatLng;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,7 +10,7 @@ import lombok.ToString;
 @ToString
 public class GetRouteReq {
 
-    private String origin;
-    private String direction;
+    private LatLng origin;
+    private LatLng direction;
 
 }
