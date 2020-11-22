@@ -39,7 +39,7 @@ public class RouteManager {
          DirectionsResult result = DirectionsApi.newRequest(context)
                  .origin(origin)
                  .destination(destination)
-                 .mode(TravelMode.DRIVING)
+                 .mode(TravelMode.WALKING)
                  .await();
 
          Gson gson = new GsonBuilder().setPrettyPrinting().create();

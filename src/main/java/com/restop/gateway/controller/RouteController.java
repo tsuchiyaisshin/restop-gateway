@@ -18,7 +18,7 @@ public class RouteController {
 
     @PostMapping("/getRoute")
     public DirectionsResult sendGetRouteReq (@RequestBody GetRouteReq req) throws InterruptedException, ApiException, IOException {
-        DirectionsResult result = routeManager.testAPI();
+        DirectionsResult result = routeManager.getRoute(req.getOrigin(), req.getDirection());
         return result;
     }
 }
