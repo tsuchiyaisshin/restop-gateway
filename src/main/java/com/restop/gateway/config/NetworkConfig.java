@@ -15,7 +15,6 @@ public class NetworkConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        //許可されたオリジン
         config.setAllowedOrigins(new ArrayList<>(Arrays.asList("http://localhost:9000")));
         config.setAllowCredentials(true);
         config.addAllowedMethod("*");
