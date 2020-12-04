@@ -4,7 +4,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.model.CreateTableRequest;
 import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
-import com.apple.eawt.Application;
+import com.restop.gateway.GatewayApplication;
 import com.restop.gateway.model.UserDO;
 import com.restop.gateway.repositories.UserRepository;
 import junit.framework.TestCase;
@@ -21,7 +21,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Application.class)
+@SpringBootTest(classes = GatewayApplication.class)
 @WebAppConfiguration
 @ActiveProfiles("local")
 @TestPropertySource(properties = {
