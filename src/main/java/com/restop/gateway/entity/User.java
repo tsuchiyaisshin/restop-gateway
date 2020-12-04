@@ -1,13 +1,13 @@
-package com.restop.gateway.model;
+package com.restop.gateway.entity;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
 @DynamoDBTable(tableName = "User")
-public class UserDO {
+public class User {
     private String id;
     private String name;
 
-    public UserDO(String name) {
+    public User(String name) {
         this.name = name;
     }
 
