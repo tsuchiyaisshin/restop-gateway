@@ -23,7 +23,12 @@ public class DynamoDBController {
     }
 
     @PostMapping("/update")
-    public List<UserDTO> updateDynamoDB(@RequestBody UserDTO dto) {
+    public UserDTO updateDynamoDB(@RequestBody UserDTO dto) {
         return userService.updateDynamoDB(dto);
+    }
+
+    @PostMapping("/delete")
+    public UserDTO deleteUser(@RequestBody UserDTO dto) {
+        return userService.deleteUser(dto);
     }
 }

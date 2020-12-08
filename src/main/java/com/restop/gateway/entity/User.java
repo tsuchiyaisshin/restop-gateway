@@ -11,7 +11,8 @@ public class User {
 
     public User(){}
 
-    public User(String name) {
+    public User(String userId, String name) {
+        this.userId = userId;
         this.name = name;
     }
 
@@ -20,7 +21,7 @@ public class User {
         return userId;
     }
 
-    @DynamoDBRangeKey(attributeName = "name")
+    @DynamoDBAttribute(attributeName = "name")
     public String getName() {
         return name;
     }

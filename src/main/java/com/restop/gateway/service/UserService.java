@@ -24,22 +24,21 @@ public class UserService {
         return convertDto(user);
     }
 
-    public List<UserDTO> updateDynamoDB(UserDTO userDTO){
-        User user = new User();
-        user.setUserId(userDTO.getUserId());
-        DynamoDBQueryExpression<User> queryExpression = new DynamoDBQueryExpression<User>()
-                .withHashKeyValues(user);
+    public UserDTO updateDynamoDB(UserDTO userDTO){
+        User updateUser = mapper.load(User.class, userDTO.getUserId());
 
-        List<User> users = mapper.query(User.class, queryExpression);
+        updateUser.setName(userDTO.getName());
+        mapper.save(updateUser);
 
-        ArrayList<UserDTO> userDTOS = new ArrayList<UserDTO>();
-        for(User u : users) {
-            u.setName(userDTO.getName());
-            mapper.save(u);
-            userDTOS.add(convertDto(u));
-        }
+        return convertDto(updateUser);
+    }
 
-        return userDTOS;
+    public UserDTO deleteUser(UserDTO userDTO){
+        User updateUser = mapper.load(User.class, userDTO.getUserId());
+
+        mapper.delete(updateUser);
+
+        return convertDto(updateUser);
     }
 
     public UserDTO convertDto(User user){
