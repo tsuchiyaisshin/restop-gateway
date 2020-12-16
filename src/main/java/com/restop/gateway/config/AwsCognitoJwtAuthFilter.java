@@ -1,5 +1,7 @@
 package com.restop.gateway.config;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -10,6 +12,8 @@ import java.io.IOException;
 
 @Component
 public class AwsCognitoJwtAuthFilter extends GenericFilter {
+
+    private static final Log logger = LogFactory.getLog(AwsCognitoJwtAuthFilter.class);
 
     private AwsCognitoIdTokenProcessor cognitoIdTokenProcessor;
 
@@ -27,6 +31,7 @@ public class AwsCognitoJwtAuthFilter extends GenericFilter {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         } catch (Exception var6) {
+            logger.error("Cognito ID Token processing error", var6);
             SecurityContextHolder.clearContext();
         }
 

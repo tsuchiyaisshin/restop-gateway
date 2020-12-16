@@ -21,4 +21,9 @@ public class RouteController {
         DirectionsResult result = routeManager.getRoute(req.getOrigin(), req.getDirection());
         return result;
     }
+
+    @GetMapping(path = "/api/hello")
+    public String getResp(){
+        return  "Hey authenticated request!";
+    }
 }
