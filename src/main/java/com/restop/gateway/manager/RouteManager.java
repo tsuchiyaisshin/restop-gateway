@@ -19,21 +19,6 @@ public class RouteManager {
             .apiKey(apiKey)
             .build();
 
-    public DirectionsResult testAPI () throws InterruptedException, ApiException, IOException {
-        LatLng origin= new LatLng(35.6, 139.6);
-        LatLng destination = new LatLng(35.7, 139.7);
-
-        DirectionsResult result = DirectionsApi.newRequest(context)
-                .origin(origin)
-                .destination(destination)
-                .mode(TravelMode.DRIVING)
-                .await();
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        return result;
-    };
-
      public DirectionsResult getRoute (LatLng origin, LatLng destination) throws InterruptedException, ApiException, IOException {
 
          DirectionsResult result = DirectionsApi.newRequest(context)
