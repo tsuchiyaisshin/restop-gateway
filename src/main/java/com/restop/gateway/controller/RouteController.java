@@ -22,8 +22,4 @@ public class RouteController {
         return result;
     }
 
-    @GetMapping(path = "/api/hello")
-    public String getResp(){
-        return  "Hey authenticated request!";
-    }
 }

@@ -13,13 +13,16 @@ public class DynamoDBController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/get")
+    public UserDTO getUser(@RequestBody UserDTO dto) { return userService.getUser(dto); }
+
     @PostMapping("/save")
-    public UserDTO insertIntoDynamoDB(@RequestBody UserDTO dto) {
-        return userService.insertIntoDynamoDB(dto);
+    public UserDTO insertIntoUser(@RequestBody UserDTO dto) {
+        return userService.insertIntoUser(dto);
     }
 
     @PostMapping("/update")
-    public UserDTO updateDynamoDB(@RequestBody UserDTO dto) {
+    public UserDTO updateUser(@RequestBody UserDTO dto) {
         return userService.updateDynamoDB(dto);
     }
 

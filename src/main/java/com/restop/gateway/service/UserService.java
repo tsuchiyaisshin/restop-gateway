@@ -1,14 +1,11 @@
 package com.restop.gateway.service;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.restop.gateway.dtos.UserDTO;
 import com.restop.gateway.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class UserService {
@@ -16,7 +13,12 @@ public class UserService {
     @Autowired
     private DynamoDBMapper mapper;
 
-    public UserDTO insertIntoDynamoDB(UserDTO userDTO){
+    public UserDTO getUser(UserDTO userDTO){
+        User getUser = mapper.load(User.class, userDTO.getUserId());
+        return convertDto(getUser);
+    }
+
+    public UserDTO insertIntoUser(UserDTO userDTO){
         User user = new User();
         user.setUserId(userDTO.getUserId());
         user.setName(userDTO.getName());
