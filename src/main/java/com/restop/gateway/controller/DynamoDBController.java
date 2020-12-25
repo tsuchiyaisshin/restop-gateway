@@ -13,7 +13,7 @@ public class DynamoDBController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/get")
+    @PostMapping("/get")
     public UserDTO getUser(@RequestBody UserDTO dto) { return userService.getUser(dto); }
 
     @PostMapping("/save")
