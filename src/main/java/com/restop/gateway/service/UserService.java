@@ -15,7 +15,7 @@ public class UserService {
 
     public UserDTO getUser(UserDTO userDTO){
         User getUser = mapper.load(User.class, userDTO.getUserId());
-        return convertDto(getUser);
+        return convertUserDto(getUser);
     }
 
     public UserDTO insertIntoUser(UserDTO userDTO){
@@ -23,16 +23,16 @@ public class UserService {
         user.setUserId(userDTO.getUserId());
         user.setName(userDTO.getName());
         mapper.save(user);
-        return convertDto(user);
+        return convertUserDto(user);
     }
 
-    public UserDTO updateDynamoDB(UserDTO userDTO){
+    public UserDTO updateUser(UserDTO userDTO){
         User updateUser = mapper.load(User.class, userDTO.getUserId());
 
         updateUser.setName(userDTO.getName());
         mapper.save(updateUser);
 
-        return convertDto(updateUser);
+        return convertUserDto(updateUser);
     }
 
     public UserDTO deleteUser(UserDTO userDTO){
@@ -40,10 +40,10 @@ public class UserService {
 
         mapper.delete(updateUser);
 
-        return convertDto(updateUser);
+        return convertUserDto(updateUser);
     }
 
-    public UserDTO convertDto(User user){
+    public UserDTO convertUserDto(User user){
         return new UserDTO(
                 user.getUserId(),
                 user.getName()

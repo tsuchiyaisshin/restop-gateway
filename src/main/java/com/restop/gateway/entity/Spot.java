@@ -4,7 +4,9 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import com.restop.gateway.utils.Position;
+import lombok.Setter;
 
+@Setter
 @DynamoDBTable(tableName = "spot")
 public class Spot {
     private String title;

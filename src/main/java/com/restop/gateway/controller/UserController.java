@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = {"http://localhost:9000"})
 @RestController
 @RequestMapping("/user")
-public class DynamoDBController {
+public class UserController {
 
     @Autowired
     private UserService userService;
@@ -23,7 +23,7 @@ public class DynamoDBController {
 
     @PostMapping("/update")
     public UserDTO updateUser(@RequestBody UserDTO dto) {
-        return userService.updateDynamoDB(dto);
+        return userService.updateUser(dto);
     }
 
     @PostMapping("/delete")
