@@ -1,8 +1,6 @@
 package com.restop.gateway.entity;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.restop.gateway.utils.Position;
 import lombok.Setter;
 
@@ -15,12 +13,19 @@ public class Spot {
 
     public Spot(){}
 
+    public Spot(String title, Position position, String icon) {
+        this.title = title;
+        this.position = position;
+        this.icon = icon;
+    }
+
     @DynamoDBHashKey(attributeName = "title")
     public String getTitle() {
         return title;
     }
 
     @DynamoDBAttribute(attributeName = "position")
+    @DynamoDBTypeConvertedJson
     public Position getPosition() {
         return position;
     }

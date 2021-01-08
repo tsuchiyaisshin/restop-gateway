@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class SpotService {
 
     @Autowired
-    DynamoDBMapper mapper;
+    private DynamoDBMapper mapper;
 
     public SpotDTO getSpot(SpotDTO spotDTO) {
         Spot spot = mapper.load(Spot.class, spotDTO.getTitle());
@@ -21,7 +21,7 @@ public class SpotService {
         Spot spot = new Spot();
         spot.setTitle(spotDTO.getTitle());
         spot.setPosition(spotDTO.getPosition());
-        spot.setIcon(spot.getIcon());
+        spot.setIcon(spotDTO.getIcon());
         mapper.save(spot);
         return convertSpot(spot);
     }
