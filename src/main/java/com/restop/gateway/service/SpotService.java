@@ -2,9 +2,7 @@ package com.restop.gateway.service;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.restop.gateway.dtos.SpotDTO;
-import com.restop.gateway.dtos.UserDTO;
 import com.restop.gateway.entity.Spot;
-import com.restop.gateway.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

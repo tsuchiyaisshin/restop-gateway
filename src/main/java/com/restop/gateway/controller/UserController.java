@@ -17,7 +17,7 @@ public class UserController {
     public UserDTO getUser(@RequestBody UserDTO dto) { return userService.getUser(dto); }
 
     @PostMapping("/save")
-    public UserDTO insertIntoUser(@RequestBody UserDTO dto) {
+    public UserDTO saveUser(@RequestBody UserDTO dto) {
         return userService.insertIntoUser(dto);
     }
 
