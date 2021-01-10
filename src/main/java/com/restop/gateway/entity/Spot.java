@@ -10,10 +10,11 @@ public class Spot {
     private String title;
     private Position position;
     private String icon;
+    private String time;
 
     public Spot(){}
 
-    public Spot(String title, Position position, String icon) {
+    public Spot(String title, Position position, String icon, String time) {
         this.title = title;
         this.position = position;
         this.icon = icon;
@@ -34,4 +35,7 @@ public class Spot {
     public String getIcon() {
         return icon;
     }
+
+    @DynamoDBAttribute(attributeName = "time")
+    public String getTime() {return time; }
 }

@@ -22,6 +22,7 @@ public class SpotService {
         spot.setTitle(spotDTO.getTitle());
         spot.setPosition(spotDTO.getPosition());
         spot.setIcon(spotDTO.getIcon());
+        spot.setTime(spotDTO.getTime());
         mapper.save(spot);
         return convertSpot(spot);
     }
@@ -31,6 +32,7 @@ public class SpotService {
 
         updateSpot.setPosition(spotDTO.getPosition());
         updateSpot.setIcon(spotDTO.getIcon());
+        updateSpot.setTime(spotDTO.getTime());
         mapper.save(updateSpot);
 
         return convertSpot(updateSpot);
@@ -48,7 +50,8 @@ public class SpotService {
         return new SpotDTO(
                 spot.getTitle(),
                 spot.getPosition(),
-                spot.getIcon()
+                spot.getIcon(),
+                spot.getTime()
         );
     }
 }
